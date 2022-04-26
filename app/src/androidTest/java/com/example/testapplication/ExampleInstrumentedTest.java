@@ -30,13 +30,13 @@ import static org.junit.Assert.*;
 public class ExampleInstrumentedTest {
 
     @Rule
-    public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
+    public ActivityTestRule<EditTextButtonTextViewActivity> mActivityTestRule = new ActivityTestRule<>(EditTextButtonTextViewActivity.class);
 
-    private MainActivity mainActivity;
+    private EditTextButtonTextViewActivity targetActivity;
 
     @Before
     public void setup() {
-        mainActivity = mActivityTestRule.getActivity();
+        targetActivity = mActivityTestRule.getActivity();
     }
 
     @Test
@@ -49,10 +49,20 @@ public class ExampleInstrumentedTest {
     @Test
     public void testEditText(){
 
-        onView(withId(R.id.name)).perform(typeText("Swarnava"));
+        onView(withId(R.id.name)).perform(typeText("Swarna"));
         closeSoftKeyboard();
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         onView(withId(R.id.email)).perform(typeText("swarnava@gmail.com"));
         closeSoftKeyboard();
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         onView(withId(R.id.phone)).perform(typeText("8697458785"));
         closeSoftKeyboard();
         onView(withId(R.id.address)).perform(typeText("A1, R nagar kol-18"));
@@ -64,6 +74,12 @@ public class ExampleInstrumentedTest {
 
         onView(withText("Submit")).perform(click());
         onView(withId(R.id.statusTV)).check(matches(withText("submitted")));
+
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
     }
 
