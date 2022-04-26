@@ -1,0 +1,55 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    compileSdk 32
+
+    defaultConfig {
+        applicationId "com.example.testapplication"
+        minSdk 21
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    testOptions {
+        unitTests.includeAndroidResources = true
+    }
+
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+    implementation 'androidx.test.ext:junit:1.1.3'
+
+    //TEST :
+    // https://mvnrepository.com/artifact/androidx.test.espresso/espresso-core
+    implementation 'androidx.test.espresso:espresso-core:3.5.0-alpha05'
+// https://mvnrepository.com/artifact/androidx.test.espresso/espresso-contrib
+    implementation 'androidx.test.espresso:espresso-contrib:3.5.0-alpha05'
+// https://mvnrepository.com/artifact/androidx.test/runner
+    implementation 'androidx.test:runner:1.5.0-alpha02'
+// https://mvnrepository.com/artifact/androidx.test/rules
+    implementation 'androidx.test:rules:1.4.1-alpha05'
+    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+// https://mvnrepository.com/artifact/junit/junit
+    testImplementation 'junit:junit:4.13.2'
+
+}
