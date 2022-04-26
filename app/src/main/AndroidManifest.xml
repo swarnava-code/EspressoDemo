@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TestApplication">
         <activity
+            android:name=".AdapterViewActivity"
+            android:exported="false" />
+        <activity
             android:name=".EditTextButtonTextViewActivity"
             android:exported="false" />
         <activity

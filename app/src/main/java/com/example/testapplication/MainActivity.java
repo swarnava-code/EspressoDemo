@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        statusTV = findViewById(R.id.statusTV);
+        //statusTV = findViewById(R.id.statusTV);
     }
 
     public void submit(View view) {
@@ -22,6 +22,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void formActivity(View view) {
         Intent intent = new Intent(MainActivity.this, EditTextButtonTextViewActivity.class);
+        startActivity(intent);
+    }
+
+    public void openAdapter(View view) {
+        Intent intent = new Intent(MainActivity.this, AdapterViewActivity.class);
         startActivity(intent);
     }
 

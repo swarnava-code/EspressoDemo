@@ -11,31 +11,34 @@ import com.example.testapplication.viewinteractions.EtBtnTvViewInteraction;
 
 public class EtBtnTvScreenPage {
     EtBtnTvViewInteraction viewInteraction = new EtBtnTvViewInteraction();
-    String name = "Swarna";
+    String myName = "Swarnava Chakraborty";
+    String myEmail = "swarnava@github.com";
+    String myPhone = "1111111111";
+    String myAddress = "A1, R.nagar, Kol-18";
 
     public void submitEtBtnTvScreenPage(){
-        onView(withId(viewInteraction.getNameId())).perform(typeText(name));
+        onView(withId(viewInteraction.getNameId())).perform(typeText(myName));
         closeSoftKeyboard();
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        onView(withId(viewInteraction.getEmailId())).perform(typeText("swarnava@gmail.com"));
+        onView(withId(viewInteraction.getEmailId())).perform(typeText(myEmail));
         closeSoftKeyboard();
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        onView(withId(viewInteraction.getPhoneId())).perform(typeText("8697458785"));
+        onView(withId(viewInteraction.getPhoneId())).perform(typeText(myPhone));
         closeSoftKeyboard();
-        onView(withId(viewInteraction.getAddressId())).perform(typeText("A1, R nagar kol-18"));
+        onView(withId(viewInteraction.getAddressId())).perform(typeText(myAddress));
         closeSoftKeyboard();
-        onView(withId(viewInteraction.getNameId())).check(matches(withText(name)));
-        onView(withId(viewInteraction.getEmailId())).check(matches(withText("swarnava@gmail.com")));
-        onView(withId(viewInteraction.getPhoneId())).check(matches(withText("8697458785")));
-        onView(withId(viewInteraction.getAddressId())).check(matches(withText("A1, R nagar kol-18")));
+        onView(withId(viewInteraction.getNameId())).check(matches(withText(myName)));
+        onView(withId(viewInteraction.getEmailId())).check(matches(withText(myEmail)));
+        onView(withId(viewInteraction.getPhoneId())).check(matches(withText(myPhone)));
+        onView(withId(viewInteraction.getAddressId())).check(matches(withText(myAddress)));
         onView(withText(viewInteraction.getSubmitBtnTxt())).perform(click());
         onView(withId(viewInteraction.getStatusId())).check(matches(withText("submitted")));
         try {
