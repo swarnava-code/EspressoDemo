@@ -29,4 +29,9 @@ public class AdapterViewTest {
         screenView.clickElementAddA();
     }
 
+    @Test
+    public void test(){
+        screenView.test();
+    }
+
 }

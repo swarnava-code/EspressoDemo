@@ -7,7 +7,16 @@ import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
+
+import android.view.View;
+
+import androidx.test.espresso.matcher.ViewMatchers;
+
+import com.example.testapplication.util.DrawableMatcher;
 import com.example.testapplication.viewinteractions.EtBtnTvViewInteraction;
+
+import org.hamcrest.Matcher;
+import com.example.testapplication.*;
 
 public class EtBtnTvScreenPage {
     EtBtnTvViewInteraction viewInteraction = new EtBtnTvViewInteraction();
@@ -46,6 +55,18 @@ public class EtBtnTvScreenPage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        // user defined matcher method - withDrawable()
+        onView(withId(R.id.espresso_icon)).check(matches(withDrawable(R.drawable.espresso)));
+
+    }
+
+    public static Matcher<View> withDrawable(final int resourceId) {
+        return new DrawableMatcher(resourceId);
+    }
+
+    public static Matcher<View> noDrawable() {
+        return new DrawableMatcher(-1);
     }
 
 }
